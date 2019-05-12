@@ -1,0 +1,175 @@
+#perlin-2, #perlin-3, #perlin-10000{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+/* #fibo-1-cont{
+    background: #191314
+} */
+
+
+
+#fibo-1-cont, #fibo-2-1-cont,#fibo-2-2-cont, #fibo-2-cont,#fibo-3-cont{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}
+
+#fibo-2-1-cont,#fibo-2-2-cont, #fibo-2-cont, #fibo-3-cont img{
+    max-height: 500px;
+}
+
+#fibo-1-text{
+    font-size: 60%;
+    /* color: #4472C4; */
+    /* border: solid black 1px; */
+    display: block;
+    text-align: center;
+    padding: 30px;
+    padding-top: 100px;
+}
+
+#fib-formula{
+    font-family: 'Cambria Math';
+    font-style: italic;
+    font-weight: bold;
+    font-size: 150%
+}
+
+#more-p5-cont{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+#more-p5-cont img{
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    max-height: 500px;
+}
+
+#welcome {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    text-align: center;
+}
+
+#welcome-img{
+    
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    height: 800px;
+}
+
+#welcome-text{
+    padding-top: 70px;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.twitter-font{
+    color: #4472C4;
+}
+
+.welcome-intro-font{
+    font-size: 60%;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    padding-left: 50px;
+}
+
+#thankyou img{
+    border: none;
+    box-shadow: none;
+}
+
+#d3-5 video{
+    max-height: 492px;
+}
+
+#intro-genart p{
+    /* border: solid black 1px; */
+    font-size: 60%;
+}
+
+#intro-genart img{
+    border: none;
+    box-shadow: none;
+}
+
+
+.reference-legend{
+    position: absolute;
+    left: 65%; top: 43%;
+    text-align: right;
+    /* border: solid black 1px; */
+    font-size: 30%;
+    color: #767171;
+}
+
+.highlight-text{
+    background: #4472C4;
+    color: black;
+}
+
+#d3-6{
+    /* max-width: 100%;
+    max-height: 100%; */
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+#d3-6 img{
+    width: 100%;
+    max-height: 500px;
+}
+
+.formula{
+    font-size: 40%
+}
+
+#cppn-1 img, #cppn-6 img, #cppn-7 img, #cppn-8 img, #books img{
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: none;
+}
+
+#cppn-2 li{
+    /* border: solid black 1px; */
+    font-size: 60%;
+}
+
+#cppn-3 img, #cppn-4 img, #cppn-5 img{
+    width: 50%;
+    border: none;
+    box-shadow: none;
+}
+
+#cppn-3 p, #cppn-4 p, #cppn-5 p, #cppn-9 p{
+    font-size: 50%;
+    text-align: center;
+}
+
+#cppn-9 li, #why-creative-code li, #references{
+    font-size: 80%;
+    text-align: left;
+}
+
+#intro-tech-used-p #references{
+    text-align: left;
+}
+
+.blinky{
+    animation: blinking 2s infinite;
+    font-weight: bold;
+}
+
+@keyframes blinking{
+    0% {color: #4472C4}
+    50% {color: #404040}
+    100% {color: #4472C4}
+
+}

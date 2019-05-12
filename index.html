@@ -1,0 +1,499 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/floralwhite.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+	<script src="lib/js/d3.v5.min.js"></script>
+	<script src="lib/js/perlin.js"></script>
+
+	<script src="lib/js/p5/p5.min.js"></script>
+	<script src="lib/js/p5/p5.dom.min.js"></script>
+
+	<script src="p5-basic-intro.js"></script>
+	<script src="fibonacci-circle.js"></script>
+	<script src="fibonacci-circle-basic.js"></script>
+	<script src="fibonacci-circle-basic-with-angle.js"></script>
+	<script src="d3-perlin-example.js"></script>
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+
+			<section id="welcome-section">
+				<div id="welcome">
+					<div id="welcome-text">
+						Can Code, <br />Will Generate Art
+						<br />
+						<br />
+						<span class="twitter-font welcome-intro-font">@purnimakamath</span>
+						<br />
+						<span class="welcome-intro-font">Director <span
+								class="twitter-font">@wwcodesingapore</span><br />
+							Evangelist <span class="twitter-font">@yow_conf</span></span>
+					</div>
+					<div id="welcome-img">
+						<img src="resources/welcome.png" />
+					</div>
+				</div>
+				<aside class="notes">
+					1) Introduction<br />
+					2) Big proponent of creative coding and coding for fun outside of work<br />
+					3) Great way for programming newbies to get into programming. <br />
+				</aside>
+			</section>
+			<section id="intro">
+				<section id="why-creative-code">
+					<h6>Why Creative Coding?</h6>
+					<p>
+						<ul>
+							<li><span class="blinky"><b>Fun!</b></span></li>
+							<!--class="blinky"-->
+							<li>Learn new technologies by making something</li>
+							<li>Practise 10,000 hrs! (Thank you, Mr. Gladwell)</li>
+						</ul>
+						<br /><br /><br />
+					</p>
+					<aside class="notes">
+						1) Learn D3 <br/>
+						2) Outliers - Deliberate practise + 10,000 hrs for mastery. 
+					</aside>
+				</section>
+				<section id="intro-tech-used">
+					<h6>Technologies in this presentation</h6>
+					<p>
+						<ul>
+							<li>p5.js</li>
+							<li>d3.js</li>
+							<li>tensorflow.js</li>
+						</ul>
+					</p>
+					<br /><br />
+					<aside class="notes">
+							1) Processing is most used Creative Coding library.<br/>
+							2) D3 for dataviz<br/>
+							3) Tensorflow for NNs<br/>
+						</aside>
+				</section>
+				<section id="intro-slides-url">
+					<p>
+						Follow along -> -----------URL--------------
+					</p>
+					<br /><br />
+				</section>
+				<section id="intro-creative-code">
+					<h6>Creative coding techniques</h6>
+					<p>
+						<ul>
+							<li>SVG or CSS Art</li>
+							<li>Generative Art</li>
+							<li>Art using Neural Networks</li>
+						</ul>
+					</p>
+					<br /><br />
+				</section>
+				<section id="intro-genart">
+					<h6>What is Generative Art?</h6>
+					<img src="resources/whatisgenart2.png" />
+				</section>
+			</section>
+			<section id="fibo-p5-section">
+				<script>
+					let fiboSeries = function (limit) {
+						var series = [];
+						var first = 0;
+						var middle = first + 1;
+						series.push(first);
+						series.push(middle);
+
+						var end;
+						for (var i = 0; i < limit; i++) {
+							end = middle + first;
+							series.push(end);
+							first = middle;
+							middle = end;
+						}
+						// console.log(series[300])
+						return series;
+					}
+					const fibo = fiboSeries(300);
+					const little_fibo = fiboSeries(20);
+				</script>
+				<section id="fibo-p5-section-1">
+					<script>
+						var fib1 = new p5(sketch, 'fibo-1');
+					</script>
+					<div>
+						<h6>FIBONACCI SEQUENCE (First 300) - #p5js</h6>
+					</div>
+					<div id="fibo-1-cont">
+						<div id="fibo-1">
+						</div>
+						<div id="fibo-1-text">
+							<span id="fib-formula">f<sub>n</sub> = f<sub>n-1</sub> + f<sub>n-2</sub></span>
+							<br />
+							<br />
+							<b>Sequence:</b> <br />0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55...
+							<br />
+							<br />
+							<b>300<sup>th</sup> number:</b> 2.2223224462942035e+62
+						</div>
+					</div>
+				</section>
+
+				<section id="fibo-p5-section-2-1">
+					<!-- data-background-iframe="//codepen.io/pkamath2/embed/VOjYwz/?height=265&theme-id=dark&default-tab=js,result" -->
+
+					<script>
+						var fib2 = new p5(introSketch, 'fibo-2-1');
+					</script>
+					<div>
+						<h6>FIBONACCI SEQUENCE (First 300) - #p5js</h6>
+					</div>
+					<div id="fibo-2-1-cont">
+						<div id="fibo-2-1">
+						</div>
+						<div style="padding-left: 8px;">
+							<img src="resources/p5js-intro.png" />
+						</div>
+					</div>
+				</section>
+				<section id="fibo-p5-section-2">
+					<!-- data-background-iframe="//codepen.io/pkamath2/embed/rgLNXa/?height=265&theme-id=dark&default-tab=js,result" -->
+
+					<script>
+						var fib2 = new p5(basicSketch, 'fibo-2');
+					</script>
+					<div>
+						<h6>FIBONACCI SEQUENCE (First 300) - #p5js</h6>
+					</div>
+					<div id="fibo-2-cont">
+						<div id="fibo-2">
+						</div>
+						<div style="padding-left: 8px;">
+							<img src="resources/p5js-0-1.png" />
+						</div>
+					</div>
+				</section>
+				<section id="fibo-p5-section-2-2">
+					<!-- data-background-iframe="//codepen.io/pkamath2/embed/ZNQywb/?height=265&theme-id=dark&default-tab=js,result" -->
+
+					<script>
+						var fib3 = new p5(basicSketchWithAngle, 'fibo-2-2');
+					</script>
+					<div>
+						<h6>FIBONACCI SEQUENCE (First 300) - #p5js</h6>
+					</div>
+					<div id="fibo-2-2-cont">
+						<div id="fibo-2-2">
+						</div>
+						<div style="padding-left: 8px;">
+							<img src="resources/p5js-0-2.png" />
+						</div>
+					</div>
+				</section>
+				<section id="fibo-p5-section-3">
+					<!-- data-background-iframe="//codepen.io/pkamath2/embed/vwKENp/?height=265&theme-id=dark&default-tab=js,result" -->
+
+					<script>
+						var fib4 = new p5(sketch, 'fibo-3');
+					</script>
+					<div>
+						<h6>FIBONACCI SEQUENCE (First 500) - #p5js</h6>
+					</div>
+					<div id="fibo-3-cont">
+						<div id="fibo-3">
+						</div>
+						<div style="padding-left: 8px;">
+							<img src="resources/p5js-1-1.png" />
+						</div>
+					</div>
+				</section>
+				<section id="more-p5-section">
+					<div>
+						<h6>More art using p5.js</h6>
+					</div>
+					<div id="more-p5-cont">
+						<div id="more-p5-1">
+							<img src="resources/truchet1.png" />
+						</div>
+						<div id="more-p5-2">
+							<img src="resources/truchet2.png" />
+						</div>
+						<div id="more-p5-3">
+							<img src="resources/truchet3.png" />
+						</div>
+					</div>
+				</section>
+
+			</section>
+			<section id="perlin-d3-section">
+				<script>
+					var perlinNoise = generatePerlinNoise(700, 500, { octaveCount: 6, amplitude: 0.03, persistence: 0.02 });
+				</script>
+				<section id="perlin-d3-section-1">
+					<div>
+						<h6>PERLIN NOISE - #d3js</h6>
+					</div>
+					<div id="perlin-1">
+						<div>
+							<svg id="svg-perlin-1" width="700" height="500"></svg>
+						</div>
+					</div>
+					<script>
+						let perlinExample = new PerlinNoiseExample('svg-perlin-1', perlinNoise);
+						var timer = d3.interval(function () {
+							perlinExample.drawGrid();
+						}, 50);
+
+					</script>
+				</section>
+				<section id="perlin-d3-section-2">
+					<div>
+						<h6>PERLIN NOISE - #d3js</h6>
+					</div>
+					<div id="perlin-2">
+						<div>
+							<svg id="svg-perlin-2" width="400" height="510"></svg>
+						</div>
+						<div>
+							<img src="resources/perlin-pseudo-static.png" />
+						</div>
+					</div>
+					<script>
+						let perlinExample2 = new PerlinNoiseExample('svg-perlin-2', perlinNoise)
+						perlinExample2.drawGrid();
+					</script>
+				</section>
+				<section id="perlin-d3-section-3">
+					<div>
+						<h6>PERLIN NOISE - #d3js</h6>
+					</div>
+					<div id="perlin-3">
+						<div>
+							<svg id="svg-perlin-3" width="400" height="520"></svg>
+						</div>
+						<div>
+							<img src="resources/perlin-pseudo-dynamic.png" />
+						</div>
+					</div>
+					<script>
+						let perlinExample3 = new PerlinNoiseExample('svg-perlin-3', perlinNoise)
+						var timer3 = d3.interval(function () {
+							perlinExample3.drawGrid();
+						}, 50);
+					</script>
+				</section>
+				<section id="perlin-d3-section-4">
+					<div>
+						<h6>PERLIN NOISE - #d3js</h6>
+					</div>
+					<div id="perlin-4">
+						<div>
+							<svg id="svg-perlin-4" width="700" height="500"></svg>
+						</div>
+					</div>
+					<script>
+						let perlinExample4 = new PerlinNoiseExample('svg-perlin-4', perlinNoise, true);
+						var timer4 = d3.interval(function () {
+							perlinExample4.drawGrid();
+						}, 50);
+
+					</script>
+				</section>
+
+				<section id="d3-section-8" data-background-iframe="/d3-fractals/mandelbrot.html">
+				</section>
+				<!-- <section id="d3-section-5">
+						<div>
+							<h6>Infinite Fractals - #d3js</h6>
+						</div>
+						<div id="d3-5">
+							<div>
+								<video controls loop>
+									<source src="resources/madelbrot-zoom.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+	
+					</section> -->
+				<section id="d3-section-9" data-background-iframe="/d3-fractals/julia-set-biomorph-1.html">
+				</section>
+				<section id="d3-section-10" data-background-iframe="/d3-fractals/julia-set-biomorph-3-1.html">
+				</section>
+				<section id="d3-section-7" data-background-iframe="/d3-fractals/GA-CA.html">
+					<!-- <div>
+							<h6>Cellular Automata - Game Of Life (Tweaked!) - #d3js</h6>
+						</div> -->
+					<!-- <div id="d3-5">
+							<div>
+								<video controls loop>
+									<source src="resources/cellularautomata-GOL.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div> -->
+				</section>
+			</section>
+			<section id="cppn-section">
+				<section id="intro-genart">
+					<h6>Generative Art using Neural Networks</h6>
+					<img src="resources/whatisgenart.png" />
+				</section>
+				<section id="cppn-1">
+					<h6>Generative Art using Neural Networks</h6>
+					<img src="resources/genart-using-NN.png" />
+				</section>
+				<section id="cppn-2">
+					<h6>Generative Art using Neural Networks</h6>
+					<p>
+						<ul>
+							<li>These are called <span class="highlight-text">“Compositional Pattern Producing
+									Networks”</span> or CPPNs.</li>
+							<li>A term coined by Kenneth O. Stanley in a paper (see reference) in 2007 </li>
+						</ul>
+					</p>
+					<br />
+					<p>DEMO!</p>
+				</section>
+				<section id="cppn-3">
+					<h6>Generative Art using NN - The Wasp</h6>
+					<img src="resources/cppn-wasp.png" />
+					<p><b>3</b> hidden layers <b>tanh</b> activation<br />
+						<b>Sigmoid</b> output<br />
+						<b>Squared</b> input x</p>
+				</section>
+				<section id="cppn-4">
+					<h6>Generative Art using NN - Batik Fractals</h6>
+					<img src="resources/cppn-batik.png" />
+					<p><b>32</b> hidden layers <b>tanh + relu</b> activation<br />
+						<b>Sigmoid</b> output<br />
+						<b>Periodic (sin)</b> input x & y</p>
+				</section>
+
+				<section id="cppn-5">
+					<h6>Generative Art using NN - A Face?</h6>
+					<img src="resources/cppn-hiddenface.png" />
+					<p><b>64</b> hidden layers <b>tanh</b> activation<br />
+						<b>Sigmoid</b> output<br />
+				</section>
+				<section id="cppn-6">
+					<h6>CPPN - Neuro Evolution Of Augmented Topologies</h6>
+					<img src="resources/cppn-neatified.png" />
+				</section>
+				<section id="cppn-7">
+					<h6>CPPN - Neuro Evolution Of Augmented Topologies</h6>
+					<img src="resources/cppn-neatified-breeding.png" />
+				</section>
+				<section id="cppn-8">
+					<h6>My Own Picbreeder</h6>
+					<img src="resources/cppn-neatified-picbreeder.png" />
+				</section>
+				<section id="cppn-9">
+					<h6>Technology Selection for GenArt using NNs</h6>
+
+					<p>
+						<ul>
+							<li>Tensorflow.js (tfjs-node for server side art generation)</li>
+							<li>Node.js</li>
+							<li>HTML Canvas & PNGStreams</li>
+							<li>D3 for network topology visualisation</li>
+						</ul>
+					</p>
+					<br /><br />
+					<p>
+						Source Code: <a
+							href="https://github.com/pkamath2/picbreeder-tf-node">https://github.com/pkamath2/picbreeder-tf-node</a>
+					</p>
+
+					<br />
+					<br />
+					<br />
+				</section>
+			</section>
+			<section>
+				<section>
+					<div id="books">
+						<h6>Books</h6>
+						<img src="resources/books.png" />
+					</div>
+				</section>
+				<section>
+					<div id="references">
+						<h6>References</h6>
+						<p>
+							<ul>
+								<li>The original picbreeder – <a href="http://picbreeder.org">http://picbreeder.org</a>
+								</li>
+								<li>My Blog: <a
+										href="https://medium.com/@prnmkmth/generative-art-using-neural-networks-and-javascript-d2c353fb0574">
+										Generative Art using Neural Networks</a>
+								</li>
+								<li>Blog: <a
+										href="http://blog.otoro.net/2016/03/25/generating-abstract-patterns-with-tensorflow/">Abstract
+										Patterns using Tensorflow</a>, David Ha
+								</li>
+								<li>Paper: <a href="http://www.philipgalanter.com/downloads/ga2003_paper.pdf">What is
+										Generative Art?</a>, Philip Galanter
+								</li>
+								<li>Paper: <a href="https://eplex.cs.ucf.edu/papers/stanley_gpem07.pdf">Compositional
+										Pattern Producing Networks</a>, Kenneth O.Stanley
+								</li>
+								<li>Paper: <a href="http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf">Evolving
+										networks through augmented topologies</a>, Kenneth O.Stanley
+								</li>
+
+							</ul>
+						</p>
+					</div>
+				</section>
+			</section>
+			<section>
+				<div id="thankyou">
+					<img src="resources/thankyou.png" />
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			margin: 0,
+			autoPlayMedia: null,
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>
