@@ -61,7 +61,8 @@
 					</div>
 				</div>
 				<aside class="notes">
-					1) Introduction<br />
+					1) My Introduction<br />
+					2) Booths<br />
 					2) Love art & Love to code --> Code with art<br />
 				</aside>
 			</section>
@@ -78,9 +79,29 @@
 					</p>
 					<aside class="notes">
 						1) Learn D3 <br />
-						2) Outliers - Deliberate practise + 10,000 hrs for mastery.
-						3) Great way for newbies to get into programming. <br />
+						2) Great way for newbies to get into programming. <br />
+						3) Outliers - Deliberate practise + 10,000 hrs for mastery.<br />
 					</aside>
+				</section>
+				<section id="intro-creative-code">
+					<h6>Creative coding techniques</h6>
+					<p>
+						<ul>
+							<li>SVG or CSS Art</li>
+							<li>Generative Art</li>
+							<li>Art using Neural Networks</li>
+						</ul>
+					</p>
+					<br /><br />
+					<aside class="notes">
+						1) Hand coding SVG: paths, circles, rect | CSS: linear/radial gradients, border-radius etc<br />
+						2) Coding some rules and allowing some randomisation.<br />
+						3) Cool kids working on GANs and NNs <br />
+					</aside>
+				</section>
+				<section id="intro-genart">
+					<h6>What is Generative Art?</h6>
+					<img src="resources/whatisgenart2.png" />
 				</section>
 				<section id="intro-tech-used">
 					<h6>Technologies in this presentation</h6>
@@ -93,36 +114,32 @@
 					</p>
 					<br /><br />
 					<aside class="notes">
-						1) Processing is most used Creative Coding library.<br />
+						1) Processing is most widely used.<br />
 						2) D3 for dataviz<br />
 						3) Tensorflow for NNs<br />
+						4) Other technologies - pts.js, canvas-sketch or ml5.js<br />
 					</aside>
 				</section>
 				<section id="intro-slides-url">
 					<p>
 						Follow along ->
 						<br />
-						<pre><code data-trim data-noescape></code>https://github.com/pkamath2/voxxed-genart-reveal</code></pre>
+						<pre><b>https://pkamath2.github.io/voxxed-genart-reveal/</b></pre>
+						<br/>
+						OR
+						<br/>
+						<pre><b>https://github.com/pkamath2/voxxed-genart-reveal</b></pre>
 						<br />
-						<pre><code data-trim data-noescape>`npm start`</code></pre>
+						<pre><code data-trim data-noescape>npm install</code></pre>
+						<pre><code data-trim data-noescape>npm start</code></pre>
 					</p>
 					<br /><br />
+					<aside class="notes">
+						1) Most of the code is running inline<br />
+					</aside>
 				</section>
-				<section id="intro-creative-code">
-					<h6>Creative coding techniques</h6>
-					<p>
-						<ul>
-							<li>SVG or CSS Art</li>
-							<li>Generative Art</li>
-							<li>Art using Neural Networks</li>
-						</ul>
-					</p>
-					<br /><br />
-				</section>
-				<section id="intro-genart">
-					<h6>What is Generative Art?</h6>
-					<img src="resources/whatisgenart2.png" />
-				</section>
+
+
 			</section>
 			<section id="fibo-p5-section">
 				<script>
@@ -166,6 +183,9 @@
 							<b>300<sup>th</sup> number:</b> 2.2223224462942035e+62
 						</div>
 					</div>
+					<aside class="notes">
+						1) My GenArt is mathematical/algorithmic - like visualising PI or Fibo<br />
+					</aside>
 				</section>
 
 				<section id="fibo-p5-section-2-1">
@@ -184,6 +204,14 @@
 							<img src="resources/p5js-intro.png" />
 						</div>
 					</div>
+					<aside class="notes">
+						1) p5.js is used by many for creative coding.<br />
+						2) What is setup() & draw()<br />
+						3) The syntax/structure is similar to HTML Canvas<br />
+						<br />
+						<br />
+						4) Nothin Fibonacci about this??
+					</aside>
 				</section>
 				<section id="fibo-p5-section-2">
 					<!-- data-background-iframe="//codepen.io/pkamath2/embed/rgLNXa/?height=265&theme-id=dark&default-tab=js,result" -->
@@ -201,6 +229,14 @@
 							<img src="resources/p5js-0-1.png" />
 						</div>
 					</div>
+					<aside class="notes">
+							1) Array of 300 fibo nums.<br />
+							2) Use fibo[index] instead of radius<br />
+							3) noLoop() - You d<br />
+							<br />
+							<br />
+							4) Nothin Fibonacci about this??
+						</aside>
 				</section>
 				<section id="fibo-p5-section-2-2">
 					<!-- data-background-iframe="//codepen.io/pkamath2/embed/ZNQywb/?height=265&theme-id=dark&default-tab=js,result" -->
@@ -258,16 +294,16 @@
 					</div>
 				</section>
 				<section id="more-p5-section">
-						<div>
-							<h6>More art using p5.js</h6>
+					<div>
+						<h6>More art using p5.js</h6>
+					</div>
+					<script>
+						var truchet2 = new p5(truchet_2, 'more-p5-2');
+					</script>
+					<div id="more-p5-cont-2">
+						<div id="more-p5-2">
 						</div>
-						<script>
-							var truchet2 = new p5(truchet_2, 'more-p5-2');
-						</script>
-						<div id="more-p5-cont-2">
-							<div id="more-p5-2">
-							</div>
-							<!-- <div id="more-p5-1">
+						<!-- <div id="more-p5-1">
 								<img src="resources/truchet1.png" />
 							</div>
 							<div id="more-p5-2">
@@ -276,8 +312,8 @@
 							<div id="more-p5-3">
 								<img src="resources/truchet3.png" />
 							</div> -->
-						</div>
-					</section>
+					</div>
+				</section>
 
 			</section>
 			<section id="perlin-d3-section">
@@ -355,7 +391,7 @@
 					</script>
 				</section>
 
-				<section id="d3-section-8" data-background-iframe="/d3-fractals/mandelbrot.html">
+				<section id="d3-section-8" data-background-iframe="d3-fractals/mandelbrot.html">
 				</section>
 				<!-- <section id="d3-section-5">
 						<div>
@@ -370,11 +406,11 @@
 						</div>
 	
 					</section> -->
-				<section id="d3-section-9" data-background-iframe="/d3-fractals/julia-set-biomorph-1.html">
+				<section id="d3-section-9" data-background-iframe="d3-fractals/julia-set-biomorph-1.html">
 				</section>
-				<section id="d3-section-10" data-background-iframe="/d3-fractals/julia-set-biomorph-3-1.html">
+				<section id="d3-section-10" data-background-iframe="d3-fractals/julia-set-biomorph-3-1.html">
 				</section>
-				<section id="d3-section-7" data-background-iframe="/d3-fractals/GA-CA.html">
+				<section id="d3-section-7" data-background-iframe="d3-fractals/GA-CA.html">
 					<!-- <div>
 							<h6>Cellular Automata - Game Of Life (Tweaked!) - #d3js</h6>
 						</div> -->
