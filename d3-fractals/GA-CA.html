@@ -29,8 +29,36 @@
         }
 
         #mbs {
-            margin: auto;
+            display: grid;
+            grid-template-columns: 50% 50%;
             text-align: center;
+        }
+
+        #mbs img{
+            width: 80%;
+        }
+
+        #equation {
+            font-family: 'Cambria Math';
+            color: #404040;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 60px;
+            text-align: center;
+        }
+
+        .equation-text {
+            padding-left: 20px;
+            font-size: 55%;
+            text-align: center;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        .equation-legend {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            text-align: left;
         }
 
         #svg {
@@ -43,12 +71,17 @@
     <div id="mbs-heading">
         <h6>Cellular Automata - Game Of Life (Tweaked!) - #d3js</h6>
     </div>
-    <svg id="svg" width="700" height="700"></svg>
+    <div id="mbs">
+            <svg id="svg" width="700" height="700"></svg>
+            <div>
+                <img src="../resources/CARules.png" />
+            </div>
+    </div>
     <script>
         var svg = d3.select("svg");
         var width = +svg.attr("width");
         var height = +svg.attr("height");
-        svg.attr("transform", "translate("+2*width/3+")")
+        svg.attr("transform", "translate("+width/7+")")
 
         var Cell = function (id, x, y, neighbours, state, prevState) {
             this.id = id;

@@ -78,9 +78,10 @@
 						<br /><br /><br />
 					</p>
 					<aside class="notes">
-						1) Learn D3 <br />
-						2) Great way for newbies to get into programming. <br />
-						3) Outliers - Deliberate practise + 10,000 hrs for mastery.<br />
+						1) Firstly Fun!<br />
+						2) I am a Java dev - Few years back I had to learn Javascript <br />
+						3) Great way for newbies to get into programming. <br />
+						4) Outliers - Deliberate practise + 10,000 hrs for mastery.<br />
 					</aside>
 				</section>
 				<section id="intro-creative-code">
@@ -89,12 +90,13 @@
 						<ul>
 							<li>SVG or CSS Art</li>
 							<li>Generative Art</li>
-							<li>Art using Neural Networks</li>
+							<li>Art using Machine Learning/Deep Learning techniques</li>
 						</ul>
 					</p>
 					<br /><br />
 					<aside class="notes">
-						1) Hand coding SVG: paths, circles, rect | CSS: linear/radial gradients, border-radius etc<br />
+						1) Hand coding SVG: paths, quadratic & bezier curves, circles, rect to draw patterns | CSS:
+						linear/radial gradients, border-radius etc<br />
 						2) Coding some rules and allowing some randomisation.<br />
 						3) Cool kids working on GANs and NNs <br />
 					</aside>
@@ -102,6 +104,10 @@
 				<section id="intro-genart">
 					<h6>What is Generative Art?</h6>
 					<img src="resources/whatisgenart2.png" />
+					<aside class="notes">
+						1) Rules: Pixel states based on Cellular Automaton<br />
+						2) Randomness: Color Code pixels blue or pink randomly<br />
+					</aside>
 				</section>
 				<section id="intro-tech-used">
 					<h6>Technologies in this presentation</h6>
@@ -116,7 +122,7 @@
 					<aside class="notes">
 						1) Processing is most widely used.<br />
 						2) D3 for dataviz<br />
-						3) Tensorflow for NNs<br />
+						3) Tensorflow for NNs<br /><br /><br />
 						4) Other technologies - pts.js, canvas-sketch or ml5.js<br />
 					</aside>
 				</section>
@@ -125,9 +131,9 @@
 						Follow along ->
 						<br />
 						<pre><b>https://pkamath2.github.io/voxxed-genart-reveal/</b></pre>
-						<br/>
+						<br />
 						OR
-						<br/>
+						<br />
 						<pre><b>https://github.com/pkamath2/voxxed-genart-reveal</b></pre>
 						<br />
 						<pre><code data-trim data-noescape>npm install</code></pre>
@@ -184,7 +190,13 @@
 						</div>
 					</div>
 					<aside class="notes">
-						1) My GenArt is mathematical/algorithmic - like visualising PI or Fibo<br />
+						1) Lets begin with a simple example - <br /><br />
+
+
+						2) Most of my GenArt is mathematical/algorithmic - like visualising PI or Fibo<br />
+						3) What is fibo? Sequence of numbers where current num in sequence = Sum of previous two. <br />
+						4) Example inspired by Daniel Shiffman, who has amazing tutorials on Creative Coding. Let's see
+						how we can go about visualising this sequence.
 					</aside>
 				</section>
 
@@ -205,8 +217,9 @@
 						</div>
 					</div>
 					<aside class="notes">
-						1) p5.js is used by many for creative coding.<br />
-						2) What is setup() & draw()<br />
+						Basics of p5:<br /><br />
+						1) p5.js is used by many for creative coding and to visualise Mathematical concepts<br />
+						2) Typical p5 sketch looks like this - setup() & draw()<br />
 						3) The syntax/structure is similar to HTML Canvas<br />
 						<br />
 						<br />
@@ -230,13 +243,13 @@
 						</div>
 					</div>
 					<aside class="notes">
-							1) Array of 300 fibo nums.<br />
-							2) Use fibo[index] instead of radius<br />
-							3) noLoop() - You d<br />
-							<br />
-							<br />
-							4) Nothin Fibonacci about this??
-						</aside>
+						1) Array of 300 fibo nums.<br />
+						2) Use fibo[index] instead of radius<br />
+						3) noLoop() & frameRate - explain<br />
+						<br />
+						<br />
+						4) Doesnt look very pretty does it??
+					</aside>
 				</section>
 				<section id="fibo-p5-section-2-2">
 					<!-- data-background-iframe="//codepen.io/pkamath2/embed/ZNQywb/?height=265&theme-id=dark&default-tab=js,result" -->
@@ -254,6 +267,15 @@
 							<img src="resources/p5js-0-2.png" />
 						</div>
 					</div>
+					<aside class="notes">
+						1) What if we offset the centre of each circle by some value, at some angle?<br />
+						2) Initiialise angle, angleChange<br />
+						3) Initialise radius, Increment<br />
+						4) Added a set timeout for this demo<br />
+						<br />
+						<br />
+						4) Still doesnt look very pretty does it??
+					</aside>
 				</section>
 				<section id="fibo-p5-section-3">
 					<!-- data-background-iframe="//codepen.io/pkamath2/embed/vwKENp/?height=265&theme-id=dark&default-tab=js,result" -->
@@ -271,16 +293,24 @@
 							<img src="resources/p5js-1-1.png" />
 						</div>
 					</div>
+					<aside class="notes">
+						1) Fibo sequence becomes large very fast. How do you plot? Could see only 15 circles
+						previously.<br />
+						2) Log base 10 - non-linear scale to plot large ranges<br />
+					</aside>
 				</section>
-				<section id="more-p5-section">
+				<section id="more-p5-section1">
 					<div>
-						<h6>More art using p5.js</h6>
+						<h6>More art using p5.js - Truchet Tiles</h6>
 					</div>
 					<script>
 						var truchet1 = new p5(truchet_1, 'more-p5-1');
 					</script>
 					<div id="more-p5-cont">
 						<div id="more-p5-1">
+						</div>
+						<div id="more-p5-1-2">
+							<img src="resources/Truchetarcsref.png" />
 						</div>
 						<!-- <div id="more-p5-1">
 							<img src="resources/truchet1.png" />
@@ -292,10 +322,13 @@
 							<img src="resources/truchet3.png" />
 						</div> -->
 					</div>
+					<aside class="notes">
+						1) Truchet tiles - tiles based patterns which are not rotationally symmetric<br />
+					</aside>
 				</section>
-				<section id="more-p5-section">
+				<section id="more-p5-section2">
 					<div>
-						<h6>More art using p5.js</h6>
+						<h6>More art using p5.js - Truchet Tiles</h6>
 					</div>
 					<script>
 						var truchet2 = new p5(truchet_2, 'more-p5-2');
@@ -313,8 +346,11 @@
 								<img src="resources/truchet3.png" />
 							</div> -->
 					</div>
+					<aside class="notes">
+						1) More basic Truchet tiling with triangles<br />
+						2) Randomise the orientation and visibiility of the tiles<br />
+					</aside>
 				</section>
-
 			</section>
 			<section id="perlin-d3-section">
 				<script>
@@ -336,6 +372,24 @@
 						}, 50);
 
 					</script>
+					<aside class="notes">
+						p5js is cool for creative coding. I started creative coding to learn D3. <br /><br />
+
+						1) Gen-Artist love random numbers. There is something therapeutic about hitting the refresh
+						button and
+						seeing different shapes materialise based on the random number distribution thats so
+						soothing.<br />
+						2) Aha moment - numbers line up perfectly - pattern you really like.<br />
+
+						<br /><br />
+						3) One type of random number generator is Perlin Noise
+						4) Perlin Noise: Algo by Ken Perlin in the 80's while making Tron. Wanted some irregularity on
+						graphics he created. Wanted to make computer graphics real like by superimposing noise on it.
+						<br />
+						5) But how does this noise look like? Many representations, this one is with squares whose edges
+						are scaled based on noise values.<br />
+						6) Perlin noise here is a 2D array/matrix.<br />
+					</aside>
 				</section>
 				<section id="perlin-d3-section-2">
 					<div>
@@ -353,6 +407,21 @@
 						let perlinExample2 = new PerlinNoiseExample('svg-perlin-2', perlinNoise)
 						perlinExample2.drawGrid();
 					</script>
+					<aside class="notes">
+						Noise:<br />
+						1) First generate some noise. Size = size of canvas. <br />
+						2) I use perlin-noise npm package.<br />
+						<br /><br />
+						D3:<br />
+						1) D3 - Data Driven Documents<br />
+						2) Helps create ease of use Javascript handles to manipulate DOM based on your data. Data =
+						Noise (for us). d3.select(); d3.append();<br />
+						3) Pseudo code - for intuition. <br />
+						4) Each pixel iterated to plot.<br />
+
+						<br /><br />
+						How about we add some animation?
+					</aside>
 				</section>
 				<section id="perlin-d3-section-3">
 					<div>
@@ -372,6 +441,14 @@
 							perlinExample3.drawGrid();
 						}, 50);
 					</script>
+					<aside class="notes">
+						1) Lets scale up each square until it reaches a certain threshold, and then start reducing the
+						size until it reaches a bottom threshold. <br />
+						2) d3.interval() <br />
+						3) Biggest problem devs run into - Pseudo code is simple - d3.append(), always creates a new
+						element. Every 50ms! High risk of DOM
+						getting heavy. <br />
+					</aside>
 				</section>
 				<section id="perlin-d3-section-4">
 					<div>
@@ -389,9 +466,38 @@
 						}, 50);
 
 					</script>
+					<aside class="notes">
+						1) What more can we do with this? Didnt I tell you Generative Artists like randomization? Lets
+						randomise each square fill/color! <br />
+						2) That was a simple example. We looked at:<br />
+						(i) d3.select();<br />
+						(ii) d3.append();<br />
+						(iii) d3.interval();<br /><br />
+
+						Lets us more comprehensive api like <br />
+						(i) d3.range(), <br />
+						(ii) d3.scale() <br />
+						(iii) color interpolators etc <br />
+						for more complex visualizations.
+					</aside>
 				</section>
 
 				<section id="d3-section-8" data-background-iframe="d3-fractals/mandelbrot.html">
+					<aside class="notes">
+						1) Few months back - Pickover book - Art based on Mathematics. Visualising concepts like
+						Fractals, Biomorphs and Cellular automata. <br />
+						2) Wanted to create this with D3. <br />
+						3) What is a Fractal? In Laymans terms - when you zoom in, you see the same structure repeated
+						infinitely. <br />
+						4) Explain Mandelbrot equation & complex numbers.<br /><br />
+
+						5) How do this in D3?<br/>
+						5.1) Define complex plane using d3.range() & scale/map pixels to each number in the plane - specify domain & range<br />
+						5.2) Compute equation using Math.js plot the point using color. <br />
+						5.3) Which color? Explain d3.colorinterporlator() <br />
+						5.4) How zoom? Range becomes narrower. But expanded to your screen.
+						d3.scaleLinear().
+					</aside>
 				</section>
 				<!-- <section id="d3-section-5">
 						<div>
@@ -407,10 +513,50 @@
 	
 					</section> -->
 				<section id="d3-section-9" data-background-iframe="d3-fractals/julia-set-biomorph-1.html">
+					<aside class="notes">
+						1) Pickover book - found that making small changes to fractal geometry, we can produce
+						structures on the complex plane which resemble organisms. <br /><br />
+
+						2) Same complex plane, but the formula and the ranges are different. 
+						3) The z^3 resemble a protozoa with thin <b>poiny pseudopods.</b> <br />
+						4) The z^z shapes are perfectly bilaterally symmetrical. Draw a line down the centre.. <br />
+						5) if the search space is searched, probably we could mathematically models slightly more
+						complex organisms as well. <br />
+						
+					</aside>
+				</section>
+				<section id="d3-section-11">
+					<div>
+						<h6>Pickover's Biomorph Zoo</h6>
+					</div>
+					<div>
+						<div>
+							<img src="resources/zoo.png" />
+						</div>
+					</div>
+					<aside class="notes">
+						1) The most interesting part of the book is the creation of this Biomorph Zoo. <br />
+						2) Researchers wrote a program which helped search through the complex plane for various
+						biomorph which are represented here. <br />
+						3) The best part is - these biomorphs were discovered because of a computer bug! So we owe it to
+						the bug for the discovery of these beautiful forms. <br />
+					</aside>
 				</section>
 				<section id="d3-section-10" data-background-iframe="d3-fractals/julia-set-biomorph-3-1.html">
+					<aside class="notes">
+						1) More cool fractals using periodic functions! <br />
+						2) Mathematically expanding sin/cos of complex numbers using hyberbolic sin and cos. <br />
+					</aside>
 				</section>
 				<section id="d3-section-7" data-background-iframe="d3-fractals/GA-CA.html">
+					<aside class="notes">
+						1) CA are simple mathematical systems which can display highly random or highly regular
+						behaviors <br />
+						2) Usually consist of a grid of cells which can exist as occupied or unoccupied states. Based on
+						rules. <br />
+						3) Explain states<br />
+						4) Implementation using D3 - SVG circles. Initial state active at centre. Refresh ever second.
+					</aside>
 					<!-- <div>
 							<h6>Cellular Automata - Game Of Life (Tweaked!) - #d3js</h6>
 						</div> -->
@@ -427,10 +573,30 @@
 				<section id="intro-genart">
 					<h6>Generative Art using Neural Networks</h6>
 					<img src="resources/whatisgenart.png" />
+					<aside class="notes">
+						1) Overview until now - p5js + d3js<br />
+						2) Whats next? All the cool kids doing ML, what good way to get my head around ML than making
+						art!<br />
+						3) Remember this diag from before? Replace the d3js/p5js with a NN.
+					</aside>
+				</section>
+				<section id="cppn-1-1">
+					<h6>Generative Art using Neural Networks</h6>
+					<img src="resources/cppnhardmaru.png" />
+					<aside class="notes">
+						1) Few months back, I was looking for Art ideas using ML and came across this.<br />
+						2) Cloud watching. Can you see patterns?<br />
+					</aside>
 				</section>
 				<section id="cppn-1">
 					<h6>Generative Art using Neural Networks</h6>
 					<img src="resources/genart-using-NN.png" />
+					<aside class="notes">
+						1) Lets take a minute to understand the bare bones basics of NN<br />
+						2) Basics of canvas – x, y, r<br />
+						3) Basics of NN neuron - inputs, f(X), activation, latent vector, bias, output<br />
+						4) Neural network – multiple layers<br />
+					</aside>
 				</section>
 				<section id="cppn-2">
 					<h6>Generative Art using Neural Networks</h6>
@@ -476,6 +642,10 @@
 				<section id="cppn-8">
 					<h6>My Own Picbreeder</h6>
 					<img src="resources/cppn-neatified-picbreeder.png" />
+					<aside class="notes">
+						1) Picbreeder originally at picbreeder.org<br />
+						2) Richard Dawkins - Blind Watchmaker<br />
+					</aside>
 				</section>
 				<section id="cppn-9">
 					<h6>Technology Selection for GenArt using NNs</h6>

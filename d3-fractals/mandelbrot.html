@@ -6,9 +6,7 @@
         body {
             font-family: 'American Typewriter', sans-serif;
             background: #fffaf0;
-
         }
-
 
         #mbs-heading {
             text-align: center;
@@ -22,14 +20,38 @@
             font-weight: 600;
             line-height: 1.2;
             letter-spacing: normal;
-            /* text-transform: uppercase; */
             text-shadow: none;
             word-wrap: break-word;
         }
 
         #mbs {
-            margin: auto;
+            display: grid;
+            grid-template-columns: 50% 5% 45%;
             text-align: center;
+        }
+
+        #equation {
+            font-family: 'Cambria Math';
+            color: #404040;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 60px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .equation-text {
+            padding-left: 20px;
+            font-size: 55%;
+            text-align: center;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        .equation-legend {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            text-align: left;
         }
     </style>
     <script src="../lib/js/d3.v5.min.js"></script>
@@ -39,7 +61,31 @@
     <div id="mbs-heading">
         <h6>Infinite Fractals - #d3js</h6>
     </div>
-    <div id="mbs"><canvas id="canvas" width=1000 height=800 style='border: solid black 5px'></canvas></div>
+    <div id="mbs">
+        <div><canvas id="canvas" width=900 height=700 style='border: solid black 5px'></canvas></div>
+        <div></div>
+        <div id="equation"><br />
+            <div class="equation-text">A <u>geometrical figure</u>, where each part has the same <u>statistical
+                    character</u> as the whole.</div>
+            <br />
+            z = x + yi<br /><br />
+            z<sub>n+1</sub> = z<sub>n</sub><sup>2</sup>+ c<br /><br />
+
+            <div class="equation-text equation-legend">
+                <div style="text-align: center;font-style: italic">
+                    x, y<br />
+                    range<br />
+                    n<br />
+                </div>
+                <div>
+                        Coordinates on complex plane<br />
+                        <i>[-1.9 - 1.3i] to [1 + 1.3i]</i><br />
+                        Iteration with limit 100<br />
+                </div>
+                
+            </div>
+        </div>
+    </div>
     <script>
         "use strict"
 

@@ -1,6 +1,6 @@
 let truchet_1 = function (p) {
     let height = 500;
-    let width = 1000;
+    let width = 500;
     let size = 10;
     let count = 1000;
     let colors = ['#ffd1d8', '#b4ecb4', "#80f4ff"]

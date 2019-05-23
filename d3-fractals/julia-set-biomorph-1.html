@@ -26,8 +26,33 @@
         }
 
         #mbs {
-            margin: auto;
+            display: grid;
+            grid-template-columns: 50% 5% 45%;
             text-align: center;
+        }
+
+        #equation {
+            font-family: 'Cambria Math';
+            color: #404040;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 60px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .equation-text {
+            padding-left: 20px;
+            font-size: 55%;
+            text-align: center;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        .equation-legend {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            text-align: left;
         }
     </style>
     <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
@@ -36,10 +61,33 @@
 
 <body>
     <div id="mbs-heading">
-        <h6>Biomorph (z -> z^3 + 0.5)</h6>
+        <h6>Biomorph - 1</h6>
     </div>
     <!-- <div id="mbs-sub-heading"><b>z -> z^3 + 0.5</b></div> -->
-    <div id="mbs"><canvas id="canvas" width=1000 height=800 style='border: solid black 5px'></canvas></div>
+    <div id="mbs">
+            <div><canvas id="canvas" width=900 height=700 style='border: solid black 5px'></canvas></div>
+        <div></div>
+        <div id="equation"><br />
+            <div class="equation-text"><u>Biological forms</u> generated from <u>Mathematical Feedback Loops</u>.</div>
+            <br />
+            z = x + yi<br /><br />
+            z<sub>n+1</sub> = z<sub>n</sub><sup>3</sup>+ 0.5<br /><br />
+
+            <div class="equation-text equation-legend">
+                <div style="text-align: center;font-style: italic">
+                    x, y<br />
+                    range<br />
+                    n<br />
+                </div>
+                <div>
+                        Coordinates on complex plane<br />
+                        <i>[-3.3 - 2.5i] to [3.3 + 2.5i]</i><br />
+                        Iteration with limit 1000<br />
+                </div>
+                
+            </div>
+        </div>
+    </div>
     <script>
         "use strict"
 

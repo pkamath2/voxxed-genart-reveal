@@ -15,6 +15,7 @@ let sketch = function(p){
     canvas = p.createCanvas(500, 500);
     canvas.translate(0,0)
     p.background('#191314');
+    // angleChange = 2*Math.PI/10;
     angleChange = 0.418879;
     increment = 100;
   }

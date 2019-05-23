@@ -35,7 +35,6 @@ let truchet_2 = function (p) {
         p.triangle(size, 0, size, size, 0, size);
         p.pop();
 
-        console.log(Math.random())
         if (Math.random() < density * x / 10) {
             p.push()
             p.noStroke();

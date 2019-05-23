@@ -10,8 +10,6 @@ let basicSketchWithAngle = function(p){
     index = 0;
     angle = 0;
     count = 0;
-    angleChange = 0;
-    increment = 0;
     canvas = p.createCanvas(500, 478);
     canvas.translate(0,0)
     p.background('#191314');
