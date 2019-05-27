@@ -29,6 +29,9 @@
 	<script src="tiling-arcs.js"></script>
 	<script src="tiling-wave.js"></script>
 
+
+	<script src="/socket.io/socket.io.js"></script>
+
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement('link');
@@ -36,6 +39,8 @@
 		link.type = 'text/css';
 		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
+
+		var global_rand = Math.random() * 10;
 	</script>
 </head>
 
@@ -63,7 +68,8 @@
 				<aside class="notes">
 					1) My Introduction<br />
 					2) Booths<br />
-					2) Love art & Love to code --> Code with art<br />
+					2) I am a software engineer + I am an artist. Few months back + Intersection of art & code.
+					Generative art is a topic I am very Passionate about.<br />
 				</aside>
 			</section>
 			<section id="intro">
@@ -80,7 +86,7 @@
 					<aside class="notes">
 						1) Firstly Fun!<br />
 						2) I am a Java dev - Few years back I had to learn Javascript <br />
-						3) Great way for newbies to get into programming. <br />
+						3) Great way for beginners to get into programming. <br />
 						4) Outliers - Deliberate practise + 10,000 hrs for mastery.<br />
 					</aside>
 				</section>
@@ -220,6 +226,7 @@
 						Basics of p5:<br /><br />
 						1) p5.js is used by many for creative coding and to visualise Mathematical concepts<br />
 						2) Typical p5 sketch looks like this - setup() & draw()<br />
+						2) Explain code<br />
 						3) The syntax/structure is similar to HTML Canvas<br />
 						<br />
 						<br />
@@ -248,7 +255,7 @@
 						3) noLoop() & frameRate - explain<br />
 						<br />
 						<br />
-						4) Doesnt look very pretty does it??
+						4) Just concentric circles - Doesnt look very pretty does it??
 					</aside>
 				</section>
 				<section id="fibo-p5-section-2-2">
@@ -269,8 +276,8 @@
 					</div>
 					<aside class="notes">
 						1) What if we offset the centre of each circle by some value, at some angle?<br />
-						2) Initiialise angle, angleChange<br />
-						3) Initialise radius, Increment<br />
+						2) Initialise angleChange & Increment<br />
+						3) And calculate offset x & y, which is the new centre using these variables.<br />
 						4) Added a set timeout for this demo<br />
 						<br />
 						<br />
@@ -323,7 +330,11 @@
 						</div> -->
 					</div>
 					<aside class="notes">
+						What more could you do with p5js - <br />
+
 						1) Truchet tiles - tiles based patterns which are not rotationally symmetric<br />
+						1) First visualise a basic tile with quarter arcs at two opp. vertices. Then keep rotating their
+						orientation to produce maze. <br />
 					</aside>
 				</section>
 				<section id="more-p5-section2">
@@ -382,7 +393,7 @@
 						2) Aha moment - numbers line up perfectly - pattern you really like.<br />
 
 						<br /><br />
-						3) One type of random number generator is Perlin Noise
+						3) One type of random number generator is Perlin Noise<br />
 						4) Perlin Noise: Algo by Ken Perlin in the 80's while making Tron. Wanted some irregularity on
 						graphics he created. Wanted to make computer graphics real like by superimposing noise on it.
 						<br />
@@ -442,6 +453,8 @@
 						}, 50);
 					</script>
 					<aside class="notes">
+						What kind of animation would you like to add to these squares? <br /><br />
+
 						1) Lets scale up each square until it reaches a certain threshold, and then start reducing the
 						size until it reaches a bottom threshold. <br />
 						2) d3.interval() <br />
@@ -489,10 +502,13 @@
 						2) Wanted to create this with D3. <br />
 						3) What is a Fractal? In Laymans terms - when you zoom in, you see the same structure repeated
 						infinitely. <br />
-						4) Explain Mandelbrot equation & complex numbers.<br /><br />
+						4) Fractals are usually visual representations on a complex plane - explain complex
+						numbers<br />
+						4) Explain Mandelbrot equation.<br /><br />
 
-						5) How do this in D3?<br/>
-						5.1) Define complex plane using d3.range() & scale/map pixels to each number in the plane - specify domain & range<br />
+						5) How do this in D3?<br />
+						5.1) Define range on complex plane using d3.range() & scale/map pixels to each number in the
+						plane - specify domain & range<br />
 						5.2) Compute equation using Math.js plot the point using color. <br />
 						5.3) Which color? Explain d3.colorinterporlator() <br />
 						5.4) How zoom? Range becomes narrower. But expanded to your screen.
@@ -514,15 +530,15 @@
 					</section> -->
 				<section id="d3-section-9" data-background-iframe="d3-fractals/julia-set-biomorph-1.html">
 					<aside class="notes">
-						1) Pickover book - found that making small changes to fractal geometry, we can produce
+						1) Scientists found that making small changes to fractal geometry, we can produce
 						structures on the complex plane which resemble organisms. <br /><br />
 
-						2) Same complex plane, but the formula and the ranges are different. 
+						2) Same complex plane, but the formula and the ranges are different. <br />
 						3) The z^3 resemble a protozoa with thin <b>poiny pseudopods.</b> <br />
 						4) The z^z shapes are perfectly bilaterally symmetrical. Draw a line down the centre.. <br />
-						5) if the search space is searched, probably we could mathematically models slightly more
+						5) if the complex plane is searched, probably we could mathematically models slightly more
 						complex organisms as well. <br />
-						
+
 					</aside>
 				</section>
 				<section id="d3-section-11">
@@ -544,8 +560,9 @@
 				</section>
 				<section id="d3-section-10" data-background-iframe="d3-fractals/julia-set-biomorph-3-1.html">
 					<aside class="notes">
-						1) More cool fractals using periodic functions! <br />
-						2) Mathematically expanding sin/cos of complex numbers using hyberbolic sin and cos. <br />
+						1) What happens to these biomorphs is you use periodic functions! <br />
+						2) Going back to high school math - cos(complex z) makes use of hyperbolic sin.cos functions..
+						<br />
 					</aside>
 				</section>
 				<section id="d3-section-7" data-background-iframe="d3-fractals/GA-CA.html">
@@ -555,7 +572,8 @@
 						2) Usually consist of a grid of cells which can exist as occupied or unoccupied states. Based on
 						rules. <br />
 						3) Explain states<br />
-						4) Implementation using D3 - SVG circles. Initial state active at centre. Refresh ever second.
+						4) Implementation using D3 - SVG circles. Initial state active at centre. Animated using
+						d3.interval().
 					</aside>
 					<!-- <div>
 							<h6>Cellular Automata - Game Of Life (Tweaked!) - #d3js</h6>
@@ -574,7 +592,7 @@
 					<h6>Generative Art using Neural Networks</h6>
 					<img src="resources/whatisgenart.png" />
 					<aside class="notes">
-						1) Overview until now - p5js + d3js<br />
+						1) Overview until now - p5js (Fibo, Truchet) + d3js (Noise, Fractals, Biomorphs, CA)<br />
 						2) Whats next? All the cool kids doing ML, what good way to get my head around ML than making
 						art!<br />
 						3) Remember this diag from before? Replace the d3js/p5js with a NN.
@@ -592,6 +610,8 @@
 					<h6>Generative Art using Neural Networks</h6>
 					<img src="resources/genart-using-NN.png" />
 					<aside class="notes">
+						An important aspect of creating art with any piece of technology? You need to understand how
+						that technology works at the most basic level to create anything meaningful.<br /><br />
 						1) Lets take a minute to understand the bare bones basics of NN<br />
 						2) Basics of canvas – x, y, r<br />
 						3) Basics of NN neuron - inputs, f(X), activation, latent vector, bias, output<br />
@@ -634,17 +654,33 @@
 				<section id="cppn-6">
 					<h6>CPPN - Neuro Evolution Of Augmented Topologies</h6>
 					<img src="resources/cppn-neatified.png" />
+					<aside class="notes">
+						High school genetic algorithms or lessons on evolution?
+					</aside>
 				</section>
 				<section id="cppn-7">
 					<h6>CPPN - Neuro Evolution Of Augmented Topologies</h6>
 					<img src="resources/cppn-neatified-breeding.png" />
+					<aside class="notes">
+						Mutation:<br />
+						A NN can be mutated by adding a new neuron or connecting disconnected neurons.<br /><br /><br />
+
+						Cross Breeding: <br />
+						A NN can be cross bred by randomly selecting a neuron from either parent.
+					</aside>
 				</section>
 				<section id="cppn-8">
 					<h6>My Own Picbreeder</h6>
 					<img src="resources/cppn-neatified-picbreeder.png" />
 					<aside class="notes">
 						1) Picbreeder originally at picbreeder.org<br />
-						2) Richard Dawkins - Blind Watchmaker<br />
+						2) Richard Dawkins - Blind Watchmaker<br /><br />
+
+						3) While breeding patterns, dont have an end goal in mind. Breeding Patterns is like evolution.
+						Evolution did not envision humans in our current state while evolving organisms.<br />
+						4) This idea originates from a philosophical concept of "Why greatness cannot be planned" Book
+						by Kenneth Stanley. Enjoy what you are doing at present and you will achieve greatness in it.
+						<br />
 					</aside>
 				</section>
 				<section id="cppn-9">
@@ -726,8 +762,9 @@
 			dependencies: [
 				{ src: 'plugin/markdown/marked.js' },
 				{ src: 'plugin/markdown/markdown.js' },
-				{ src: 'plugin/notes/notes.js', async: true },
-				{ src: 'plugin/highlight/highlight.js', async: true }
+				// { src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true },
+				{ src: 'plugin/notes-server/client.js', async: true }
 			]
 		});
 	</script>
